@@ -35,13 +35,14 @@ def springJdbc = "org.springframework:spring-jdbc:${springVersion}"
 def springAop = "org.springframework:spring-aop:${springVersion}"
 def springAspects = "org.springframework:spring-aspects:${springVersion}"
 def springTest = "org.springframework:spring-test:${springVersion}"
+def gson = "com.google.code.gson:gson:2.6.2";
 
 def commonLang = "org.apache.commons:commons-lang3:3.4"
 
 
 dependencies{
     compile log4j,mysql,dbcp, mybatis, mybatisSpring,springContext,springContextSupport,springMvc,
-            springAop,springAspects,springJdbc,springTx, commonLang
+            springAop,springAspects,springJdbc,springTx, commonLang,gson
     testCompile junit,springTest
     providedCompile  servletAPI,servletJSP
 }
