@@ -35,7 +35,9 @@ public class DemoController {
     @RequestMapping(value="/exception", method=RequestMethod.GET)
     public String throwException(){
         logger.info("Request:/exception");
-        throw new ApplicationException(ResponseCode.FAILED);
+        Map<String, String> result = new HashMap<>();
+        result.put("message","warning");
+        throw new ApplicationException(ResponseCode.FAILED, result);
     }
 
     @RequestMapping(value="/get-account", method = RequestMethod.GET)

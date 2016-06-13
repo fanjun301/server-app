@@ -8,6 +8,8 @@ public class ApplicationException extends RuntimeException {
 
     private ResponseCode responseCode;
 
+    private Object exceptionGson;
+
     public ApplicationException() {
 
     }
@@ -16,12 +18,25 @@ public class ApplicationException extends RuntimeException {
         this.responseCode = responseCode;
     }
 
+    public ApplicationException(ResponseCode responseCode, Object exceptionGson) {
+        this.responseCode = responseCode;
+        this.exceptionGson = exceptionGson;
+    }
+
     public ResponseCode getResponseCode() {
         return responseCode;
     }
 
     public void setResponseCode(ResponseCode responseCode) {
         this.responseCode = responseCode;
+    }
+
+    public Object getExceptionGson() {
+        return exceptionGson;
+    }
+
+    public void setExceptionGson(Object exceptionGson) {
+        this.exceptionGson = exceptionGson;
     }
 
     @Override

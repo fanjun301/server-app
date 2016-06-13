@@ -17,10 +17,16 @@ public class ApplicationExceptionHandler implements HandlerExceptionResolver {
     @Override
     public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
         logger.error(ex.getCause());
-        ResponseGSon responseGSon = new ResponseGSon();
+        ResponseGSon responseGSon;
         if (ex instanceof ApplicationException){
             ApplicationException applicationException = (ApplicationException)ex;
-            responseGSon = ResponseGSon.buildResponseResult(applicationException.getResponseCode(), ex.getMessage());
+            Object content = null;
+            if (applicationException.getExceptionGson() != null){
+                content = applicationException.getExceptionGson();
+            }else{
+                content = ex.getMessage();
+            }
+            responseGSon = ResponseGSon.buildResponseResult(applicationException.getResponseCode(), content);
         }else{
             responseGSon = ResponseGSon.buildResponseResult(ResponseCode.FAILED, ex.getCause());
         }
