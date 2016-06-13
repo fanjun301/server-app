@@ -19,4 +19,5 @@
         <!--<property name="suffix" value=".jsp"/>-->
     <!--</bean>-->
 
+    <bean id="exceptionResolver" class="cn.fanstar.server.exception.ApplicationExceptionHandler"/>
 </beans>

@@ -1,7 +1,9 @@
 package cn.fanstar.server.controller;
 
+import cn.fanstar.server.common.ResponseCode;
 import cn.fanstar.server.common.ResponseGSon;
 import cn.fanstar.server.dto.Account;
+import cn.fanstar.server.exception.ApplicationException;
 import cn.fanstar.server.service.AccountService;
 import com.google.gson.Gson;
 import org.apache.commons.lang3.StringUtils;
@@ -25,14 +27,21 @@ public class DemoController {
         logger.info("Request:/demo");
         Map<String,String> result = new HashMap<>();
         result.put("message","greeting from Frank ");
-        String resGson = new Gson().toJson(result);
-        logger.info(String.format("Request:/demo result: %s", resGson));
-        return resGson;
+        String resultGson = new Gson().toJson(result);
+        logger.info(String.format("Response:/demo result: %s", resultGson));
+        return resultGson;
+    }
+
+    @RequestMapping(value="/exception", method=RequestMethod.GET)
+    public String throwException(){
+        logger.info("Request:/exception");
+        throw new ApplicationException(ResponseCode.FAILED);
     }
 
     @RequestMapping(value="/get-account", method = RequestMethod.GET)
     public ResponseGSon getAccount(@RequestParam("name") String username){
         logger.info(String.format("Request:/get-account, parameter:%s", username));
+
         Account result = null;
         if (!StringUtils.isBlank(username)) {
             result = accountService.getAccount(username);
