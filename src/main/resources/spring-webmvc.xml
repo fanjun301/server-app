@@ -10,6 +10,8 @@
     <!-- Scans the classpath of this application for @Components to deploy as beans -->
     <context:component-scan base-package="cn.fanstar.server" />
 
+    <context:property-placeholder location="classpath:server.properties" ignore-unresolvable="true" order="2000000"/>
+
     <!-- Configures the @Controller programming model -->
     <mvc:annotation-driven />
 

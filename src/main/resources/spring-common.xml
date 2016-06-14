@@ -12,7 +12,7 @@
      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
 
-    <context:property-placeholder location="classpath:jdbc.properties"/>
+    <context:property-placeholder location="classpath:server.properties" ignore-unresolvable="true" order="2000000"/>
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="username" value="${jdbc.username}"/>
@@ -31,13 +31,16 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
 
-    <context:component-scan base-package="cn.fanstar.server.service" />
+    <context:component-scan base-package="cn.fanstar.server" />
 
     <context:annotation-config />
 
     <tx:annotation-driven  transaction-manager="transactionManager"/>
 
     <aop:aspectj-autoproxy/>
+
+    <bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+    </bean>
 
     <!-- mybatis config -->
 
