@@ -56,4 +56,7 @@
         <property name="basePackage" value="cn.fanstar.server.mapper" />
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
+
+    <bean id="springContextUtil" class="cn.fanstar.server.common.SpringContextUtil"/>
+
 </beans>
