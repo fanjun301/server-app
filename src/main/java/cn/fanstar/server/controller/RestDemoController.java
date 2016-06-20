@@ -19,9 +19,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-public class DemoController {
+public class RestDemoController {
 
-    private static Logger logger = Logger.getLogger(DemoController.class);
+    private static Logger logger = Logger.getLogger(RestDemoController.class);
 
     @Autowired
     private AccountService accountService;

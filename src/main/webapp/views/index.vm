@@ -2,6 +2,6 @@
 <head>
 </head>
 <body>
-    vm result: $result
+    vm result: $result $map.key
 </body>
 </html>
