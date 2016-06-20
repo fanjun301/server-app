@@ -1,6 +1,5 @@
 package cn.fanstar.server.facade;
 
-import cn.fanstar.server.common.SpringContextUtil;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 

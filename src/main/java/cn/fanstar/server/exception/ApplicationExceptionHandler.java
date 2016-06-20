@@ -35,7 +35,7 @@ public class ApplicationExceptionHandler implements HandlerExceptionResolver {
         return null;
     }
 
-    private synchronized static void writer(HttpServletResponse response, String str) {
+    private synchronized void writer(HttpServletResponse response, String str) {
         try {
             response.setHeader("Pragma", "No-cache");
             response.setHeader("Cache-Control", "no-cache");
