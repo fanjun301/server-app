@@ -7,6 +7,7 @@ public class ResponseGSon {
 
     public ResponseGSon() {
 
+
     }
 
     public ResponseGSon(String resultCode, String resultMessage, Object content) {

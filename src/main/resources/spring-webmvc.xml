@@ -28,8 +28,9 @@
     </bean>
 
     <bean id="velocityViewResolver"
-          class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
+          class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
         <property name="suffix" value=".vm"/>
+        <property name="layoutUrl" value="layout.vm"/>
     </bean>
 
     <bean id="exceptionResolver" class="cn.fanstar.server.exception.ApplicationExceptionHandler"/>

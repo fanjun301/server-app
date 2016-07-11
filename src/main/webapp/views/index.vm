@@ -1,7 +1,2 @@
-<html>
-<head>
-</head>
-<body>
-    vm result: $result $map.key
-</body>
-</html>
+
+vm result: $result $map.key
